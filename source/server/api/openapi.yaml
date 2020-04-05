@@ -1,0 +1,436 @@
+openapi: 3.0.0
+info:
+  title: Gig managementment api
+  description: This is a simple API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/sudeepd/me.cooking/1.0.0
+  description: SwaggerHub API Auto Mocking
+paths:
+  /user:
+    post:
+      tags:
+      - Users
+      summary: Creates a user
+      operationId: createUser
+      requestBody:
+        description: Body of the request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateRequest'
+        required: true
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+        "400":
+          description: bad input parameter
+      x-swagger-router-controller: Users
+  /user/{id}:
+    get:
+      tags:
+      - Users
+      summary: Gets an user with given id
+      operationId: getUser
+      parameters:
+      - name: id
+        in: path
+        description: Numeric ID of the user to get
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGetResponse'
+      x-swagger-router-controller: Users
+    delete:
+      tags:
+      - Users
+      summary: Deletes an user with given id
+      operationId: deleteUser
+      parameters:
+      - name: id
+        in: path
+        description: Numeric ID of the user to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Success response
+      x-swagger-router-controller: Users
+    patch:
+      tags:
+      - Users
+      summary: Modifies attributes of an user
+      operationId: modifyUser
+      parameters:
+      - name: id
+        in: path
+        description: Numeric ID of the user to get
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        description: Body of the request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserModifyRequest'
+        required: true
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserModifyResponse'
+      x-swagger-router-controller: Users
+  /dish:
+    post:
+      tags:
+      - Dish
+      summary: Creates a dish
+      operationId: createDish
+      requestBody:
+        description: Body of the request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DishCreateRequest'
+        required: true
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+        "400":
+          description: bad input parameter
+      x-swagger-router-controller: Dish
+  /dish/{id}:
+    get:
+      tags:
+      - Dish
+      summary: Gets a dish with the given id
+      operationId: getDish
+      parameters:
+      - name: id
+        in: path
+        description: Numeric ID of the dish to get
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DishGetResponse'
+      x-swagger-router-controller: Dish
+    delete:
+      tags:
+      - Dish
+      summary: Deletes a dish with given id
+      operationId: deleteDish
+      parameters:
+      - name: id
+        in: path
+        description: Numeric ID of the dish to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Success response
+      x-swagger-router-controller: Dish
+    patch:
+      tags:
+      - Dish
+      summary: Modifies the ingredients/description/name of a dish
+      operationId: modifyDish
+      parameters:
+      - name: id
+        in: path
+        description: Numeric ID of the dish to modify
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        description: Body of the request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DishModifyRequest'
+        required: true
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DishModifyResponse'
+      x-swagger-router-controller: Dish
+  /ingredient:
+    post:
+      tags:
+      - Ingredient
+      summary: Defines an ingredient used in a dish
+      operationId: creatIngredient
+      requestBody:
+        description: Body of the request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngredientCreateRequest'
+        required: true
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+        "400":
+          description: bad input parameter
+      x-swagger-router-controller: Ingredient
+  /ingredient/{id}:
+    get:
+      tags:
+      - Ingredient
+      summary: Gets an ingredient with the given id
+      operationId: getIngredient
+      parameters:
+      - name: id
+        in: path
+        description: Numeric ID of the ingredient to get
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngredientGetResponse'
+      x-swagger-router-controller: Ingredient
+    delete:
+      tags:
+      - Ingredient
+      summary: Deletes a dish with given id
+      operationId: deleteIngredient
+      parameters:
+      - name: id
+        in: path
+        description: Numeric ID of the dish to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Success response
+      x-swagger-router-controller: Ingredient
+components:
+  schemas:
+    CreateResponse:
+      required:
+      - id
+      properties:
+        id:
+          type: number
+      example:
+        id: 0.80082819046101150206595775671303272247314453125
+    IngredientCreateRequest:
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    IngredientGetResponse:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+      example:
+        name: name
+        description: description
+    DishCreateRequest:
+      required:
+      - cookTime
+      - description
+      - ingredients
+      - name
+      properties:
+        name:
+          type: string
+        cookTime:
+          type: number
+        description:
+          type: string
+        ingredients:
+          type: array
+          items:
+            type: number
+    DishGetResponse:
+      required:
+      - cookTime
+      - description
+      - id
+      - ingredients
+      - name
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        cookTime:
+          type: number
+        description:
+          type: string
+        ingredients:
+          type: array
+          items:
+            $ref: '#/components/schemas/DishGetResponse_ingredients'
+      example:
+        name: name
+        cookTime: 6.02745618307040320615897144307382404804229736328125
+        description: description
+        ingredients:
+        - name: 5.962133916683182377482808078639209270477294921875
+          id: 1.46581298050294517310021547018550336360931396484375
+        - name: 5.962133916683182377482808078639209270477294921875
+          id: 1.46581298050294517310021547018550336360931396484375
+        id: 0.80082819046101150206595775671303272247314453125
+    DishModifyRequest:
+      properties:
+        name:
+          type: string
+        cookTime:
+          type: number
+        description:
+          type: string
+        addIngredients:
+          type: array
+          items:
+            type: number
+        removeIngredients:
+          type: array
+          items:
+            type: number
+    DishModifyResponse:
+      properties:
+        id:
+          type: number
+      example:
+        id: 0.80082819046101150206595775671303272247314453125
+    UserGetResponse:
+      required:
+      - email
+      - id
+      - phone
+      properties:
+        id:
+          type: number
+        email:
+          type: string
+        phone:
+          type: string
+          example: 408-867-5309
+        persona:
+          type: array
+          items:
+            type: string
+            enum:
+            - coach
+            - seeker
+      example:
+        persona:
+        - coach
+        - coach
+        phone: 408-867-5309
+        id: 0.80082819046101150206595775671303272247314453125
+        email: email
+    UserCreateRequest:
+      required:
+      - email
+      - phone
+      properties:
+        email:
+          type: string
+        phone:
+          type: string
+          example: 408-867-5309
+        persona:
+          type: array
+          items:
+            type: string
+            enum:
+            - coach
+            - seeker
+    UserModifyResponse:
+      required:
+      - id
+      properties:
+        id:
+          type: number
+      example:
+        id: 0.80082819046101150206595775671303272247314453125
+    UserModifyRequest:
+      properties:
+        email:
+          type: string
+        phone:
+          type: string
+          example: 408-867-5309
+        persona:
+          type: array
+          items:
+            type: string
+            enum:
+            - coach
+            - seeker
+    DishGetResponse_ingredients:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: number
+      example:
+        name: 5.962133916683182377482808078639209270477294921875
+        id: 1.46581298050294517310021547018550336360931396484375

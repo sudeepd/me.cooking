@@ -1,0 +1,58 @@
+/******************************************************************************
+ * Copyright 2020 GudCook Inc.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *****************************************************************************/
+'use strict';
+
+var utils = require('../utils/writer.js');
+var Dish = require('../service/DishService');
+
+module.exports.createDish = function createDish (req, res, next, body) {
+  Dish.createDish(body)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.deleteDish = function deleteDish (req, res, next, id) {
+  Dish.deleteDish(id)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.getDish = function getDish (req, res, next, id) {
+  Dish.getDish(id)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.modifyDish = function modifyDish (req, res, next, body, id) {
+  Dish.modifyDish(body, id)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
