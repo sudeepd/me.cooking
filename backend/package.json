@@ -1,0 +1,13 @@
+{
+  "name": "atyachari-dukaan",
+  "version": "1.0.0",
+  "description": "Back end for atyachari-dukaan",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sudeep.das.in@gmail.com",
+  "license": "ISC"
+}
