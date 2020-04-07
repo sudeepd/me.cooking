@@ -1,7 +1,7 @@
 {
-  "name": "atyachari-dukaan",
+  "name": "gudcook",
   "version": "1.0.0",
-  "description": "Back end for atyachari-dukaan",
+  "description": "Backend for gudcook.me",
   "directories": {
     "test": "test"
   },
