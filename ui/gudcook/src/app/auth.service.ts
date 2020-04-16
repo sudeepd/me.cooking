@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {COACHES} from './mock-data';
+import {COACHES, SEEKERS} from './mock-data';
 import {Coach} from './models';
 import { Observable, of } from 'rxjs';
 
@@ -16,8 +16,13 @@ function pickRandomArrayItem(input : any[]) {
 })
 export class AuthService {
   getLoggedInUser() : Observable<string> {
-    let coach: Coach = pickRandomArrayItem(COACHES);
-    return of(coach.email);
+    if ( Math.random() >= 0.5) {
+      let coach: Coach = pickRandomArrayItem(COACHES);
+      return of(coach.email);
+    } else {
+      let seeker: Coach = pickRandomArrayItem(SEEKERS);
+      return of(seeker.email);
+    }
   }
   
   constructor() { }

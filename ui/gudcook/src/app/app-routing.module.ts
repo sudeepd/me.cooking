@@ -6,6 +6,7 @@ import { CompanyComponent } from './company/company.component';
 import { BlogComponent } from './blog/blog.component';
 import { CoachhomeComponent } from './coachhome/coachhome.component';
 import { SeekerhomeComponent } from './seekerhome/seekerhome.component';
+import { DishDetailComponent } from './dish-detail/dish-detail.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'coach',
     component: CoachhomeComponent
+  },
+  {
+    path: 'dish/:id',
+    component: DishDetailComponent
   },
   {
     path: 'seeker',
