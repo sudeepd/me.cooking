@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   firebase : {
-    apiKey: "AIzaSyAfySUZuGygfGvawy0UZuIyDTDZfrYmFvQ",
     authDomain: "cooking-gig.firebaseapp.com",
     databaseURL: "https://cooking-gig.firebaseio.com",
     projectId: "cooking-gig",
