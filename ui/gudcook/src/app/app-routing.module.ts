@@ -7,12 +7,16 @@ import { BlogComponent } from './blog/blog.component';
 import { CoachhomeComponent } from './coachhome/coachhome.component';
 import { SeekerhomeComponent } from './seekerhome/seekerhome.component';
 import { DishDetailComponent } from './dish-detail/dish-detail.component';
-
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'coach',
@@ -40,7 +44,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
