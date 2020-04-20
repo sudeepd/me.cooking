@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
-import {COACHES, SEEKERS} from './mock-data';
 import {Coach} from './models';
 import { Observable, of } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -21,16 +20,6 @@ function pickRandomArrayItem(input : any[]) {
 export class AuthService {
   private user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
-
-  getLoggedInUser() : Observable<string> {
-    if ( Math.random() >= 0.5) {
-      let coach: Coach = pickRandomArrayItem(COACHES);
-      return of(coach.email);
-    } else {
-      let seeker: Coach = pickRandomArrayItem(SEEKERS);
-      return of(seeker.email);
-    }
-  }
   
   constructor(private _firebaseAuth: AngularFireAuth, private router: Router) { 
     this.user = _firebaseAuth.authState;
@@ -46,16 +35,6 @@ export class AuthService {
       }
     );
   }
-
-  signInWithGoogle() {
-    return this._firebaseAuth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
-    )
-  }  
-
-  signInWithPassword(email, password) {
-    return this._firebaseAuth.signInWithEmailAndPassword(email,password)
-  }  
 
   isLoggedIn() {
     if (this.userDetails == null ) {

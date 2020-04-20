@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,10 @@ import { DishDetailComponent } from './dish-detail/dish-detail.component';
 import { environment } from '../environments/environment';
 import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { BannerComponent } from './banner/banner.component';
+import { DishBrowserComponent } from './dish-browser/dish-browser.component';
+import { GudcookService } from './gudcook.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,9 @@ import { LoginComponent } from './login/login.component';
     SeekerhomeComponent,
     DishDetailComponent,
     LoginComponent,
+    SignupComponent,
+    BannerComponent,
+    DishBrowserComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     NgbModule,
     AngularFireModule.initializeApp(environment.firebase, 'cooking-gig'),
-    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     AngularFireAuthModule          
   ],
   providers: [AuthService],

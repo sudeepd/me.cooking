@@ -8,6 +8,7 @@ import { CoachhomeComponent } from './coachhome/coachhome.component';
 import { SeekerhomeComponent } from './seekerhome/seekerhome.component';
 import { DishDetailComponent } from './dish-detail/dish-detail.component';
 import {LoginComponent} from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   },
   {
     path: 'coach',
@@ -44,12 +49,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full'
   }  
 ];
