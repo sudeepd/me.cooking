@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-4 border-right">        
+        <p>
+            Upcoming Appointments
+            <button type="button" class="btn px-3 ml-2">
+                <i class="fa fa-edit fa-2x"></i>
+            </button>            
+        </p>
+        <!-- <ul class="list-group">
+            <li *ngFor="let item of userData?.appointments" class="list-group-item border-0">
+                <i class="fa fa-calendar mr-2"></i>{{item.startTime| date:'medium'}}
+            </li>
+        </ul>             -->
+    </div>
+    <div class="col-md-8">
+        <p>
+            Appointments Scheduling
+            <button *ngIf="!appointmentsEdit" type="button" class="btn px-3 ml-2" (click)="schedulingCalendar()">
+                <i class="fa fa-edit fa-2x"></i>
+            </button>            
+        </p>
+        <p *ngIf="!appointmentsEdit"> No Appointments found! </p>
+        <div class="row" *ngIf="appointmentsEdit">
+            <div class="col-md-12">
+                <ngb-datepicker #dp [(ngModel)]="selectedDate" [minDate] = "minDate" [maxDate] = "maxDate" (dateSelect)="onDateSelection($event)" [dayTemplate]="t" ></ngb-datepicker>
+                <ng-template #t let-date let-focused="focused">
+                    <span class="custom-day"
+                        [class.focused]="focused"
+                        [class.range]="isRange(date)"
+                        [class.faded]="isHovered(date) || isInside(date)"
+                        (mouseenter)="hoveredDate = date"
+                        (mouseleave)="hoveredDate = null">
+                    {{ date.day }}
+                    </span>
+                </ng-template>
+            </div>
+            <div class="col-md-12" *ngIf="isDisplayTimeSlot">
+                <ul class="ts-cboxtags time-slot">
+                    <li *ngFor="let timeItem of timeSlot; let i=index"><input type="checkbox" id="checkbox{{i}}" value="{{timeItem.time}}"><label for="checkbox{{i}}">{{timeItem.timeformat}}</label></li>
+                    <!-- <li><input type="checkbox" id="checkboxTwo" value="Cotton Candy" checked><label for="checkboxTwo">Cotton Candy</label></li>
+                    <li><input type="checkbox" id="checkboxFifteen" value="Firefly"><label for="checkboxFifteen">Firefly</label></li> -->
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <hr>
+                    <div class="col-md-12">			 
+                        <button type="button" class="btn btn-confirm">
+                            Save
+                        </button>
+                        <button type="button" class="btn btn-light btn-cancel">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+</div>
