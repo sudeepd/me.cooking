@@ -34,6 +34,9 @@ import { BagComponent } from './bag/bag.component';
 import { DishEditComponent } from './dish-edit/dish-edit.component';
 import { StudentEditProfileComponent } from './student-edit-profile/student-edit-profile.component';
 import { TeacherEditProfileComponent } from './teacher-edit-profile/teacher-edit-profile.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { ToastService } from './toast-service';
+import { ToastsContainer } from "./toasts-container.component";
 
 @NgModule({
   declarations: [
@@ -60,6 +63,8 @@ import { TeacherEditProfileComponent } from './teacher-edit-profile/teacher-edit
     DishEditComponent,
     StudentEditProfileComponent,
     TeacherEditProfileComponent,
+    EditprofileComponent,
+    ToastsContainer
   ],
   imports: [
     BrowserModule,
@@ -72,7 +77,7 @@ import { TeacherEditProfileComponent } from './teacher-edit-profile/teacher-edit
     AngularFirestoreModule,
     AngularFireAuthModule 
   ],
-  providers: [AuthService],
+  providers: [AuthService, ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

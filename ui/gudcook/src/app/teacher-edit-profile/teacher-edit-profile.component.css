@@ -29,7 +29,6 @@
     border: 1px solid #DFDFDF;
     border-radius: 5px;
     padding: 10px;
-    margin-top: 10px;
 }
 
 /****************** Checkbox design ********************************/
@@ -39,7 +38,7 @@ ul.ts-cboxtags {
 }
 ul.ts-cboxtags li{
   display: inline;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 ul.ts-cboxtags li label{
     display: inline-block;
@@ -61,6 +60,8 @@ ul.ts-cboxtags li label{
 ul.ts-cboxtags li label {
     padding: 8px 12px;
     cursor: pointer;
+    width: 95px;
+    text-align: center;
 }
 
 ul.ts-cboxtags li label::before {
@@ -119,6 +120,10 @@ ul.ts-cboxtags li input[type="checkbox"]:focus + label {
     font-weight: bold;
 }
 
+.remove-padding{
+    padding-left: 0px;
+    padding-right: 0px;
+}
 /* .ngb-dp-day.disabled, .ngb-dp-day.hidden {
     opacity: .5 !important;
 } */
