@@ -13,31 +13,9 @@
             <p class="mt-2">{{seeker?.displayName}}</p>
             <p class="mt-2">Member since : {{seeker?.joinDate?.toDateString()}}</p>
         </div>
-        <div class="col-md-4 border-right">
-            <p>
-                Upcoming Appointments
-                <button type="button" class="btn px-3 ml-2">
-                    <i class="fa fa-edit fa-2x"></i>
-                </button>            
-            </p>
-            <ul class="list-group">
-                <li *ngFor="let item of seeker?.appointments" class="list-group-item border-0">
-                    <i class="fa fa-calendar mr-2"></i>{{item.startTime| date:'medium'}}
-                </li>
-            </ul>            
-        </div>
-        <div class="col-md-4">
-            <p>
-                Favorites
-                <button type="button" class="btn px-3 ml-2">
-                </button>            
-            </p>
-            <ul class="list-group">
-                <li *ngFor="let item of seeker?.favorites" class="list-group-item border-0">
-                    {{item.name}}
-                </li>
-            </ul>            
-        
+        <div class="col-md-8">
+            <app-teacher-edit-profile *ngIf="seeker?.persona == 'coach'" [userData]="seeker"></app-teacher-edit-profile> 
+            <app-student-edit-profile *ngIf="seeker?.persona == 'seeker'" [userData]="seeker"></app-student-edit-profile>
         </div>
     </div>
     <app-dish-browser></app-dish-browser>

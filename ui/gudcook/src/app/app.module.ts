@@ -32,6 +32,8 @@ import { NewDishComponent } from './new-dish/new-dish.component';
 import { TagInputModule } from 'ngx-chips';
 import { BagComponent } from './bag/bag.component';
 import { DishEditComponent } from './dish-edit/dish-edit.component';
+import { StudentEditProfileComponent } from './student-edit-profile/student-edit-profile.component';
+import { TeacherEditProfileComponent } from './teacher-edit-profile/teacher-edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { DishEditComponent } from './dish-edit/dish-edit.component';
     NewDishComponent,
     BagComponent,
     DishEditComponent,
+    StudentEditProfileComponent,
+    TeacherEditProfileComponent,
   ],
   imports: [
     BrowserModule,
