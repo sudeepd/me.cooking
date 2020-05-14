@@ -18,7 +18,7 @@
                 <h5 class="card-title"><a [routerLink]="['/dish',view.id]">{{view.name}}</a></h5>
                 <i class="fa fa-cutlery mr-3"></i>{{getUserName(view.creator)}}<br>
                 Ratings : {{view.ratings}}<br>
-                <a [routerLink]="['/reserve']">
+                <a [routerLink]="['/dish',view.id]">
                     <i class="fa fa-calendar mr-3"></i>Reserve time<br>
                 </a>
             </div>
