@@ -13,7 +13,7 @@
         </ul>             -->
     </div>
     <div class="col-md-8">
-        <p>
+        <!-- <p>
             Appointments Scheduling
             <button *ngIf="!appointmentsEdit" type="button" class="btn px-3 ml-2" (click)="schedulingCalendar()">
                 <i class="fa fa-edit fa-2x"></i>
@@ -23,8 +23,9 @@
             <p>No data found!</p>
         </div>
 
-        <div class="row" *ngIf="appointmentsEdit">
-            <div class="col-md-4">
+        <div class="row" *ngIf="appointmentsEdit"> -->
+            <div class="row" >
+                <div class="col-md-4">
                 <ngb-datepicker #dp [(ngModel)]="selectedDate" [minDate] = "minDate" [maxDate] = "maxDate" (dateSelect)="onDateSelection($event)" [dayTemplate]="t" ></ngb-datepicker>
                 <ng-template #t let-date let-focused="focused">
                     <span class="custom-day"

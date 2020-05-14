@@ -18,5 +18,5 @@
         </div>
     
     </div>
-    <app-dish-editor [coach]="coach"></app-dish-editor>
+    <app-dish-editor *ngIf="coach" [coach]="coach"></app-dish-editor>
 </div>
