@@ -19,9 +19,12 @@
                 <i class="fa fa-edit fa-2x"></i>
             </button>            
         </p>
-        <p *ngIf="!appointmentsEdit"> No Appointments found! </p>
+        <div *ngIf="!appointmentsEdit">
+            <p>No data found!</p>
+        </div>
+
         <div class="row" *ngIf="appointmentsEdit">
-            <div class="col-md-12">
+            <div class="col-md-4">
                 <ngb-datepicker #dp [(ngModel)]="selectedDate" [minDate] = "minDate" [maxDate] = "maxDate" (dateSelect)="onDateSelection($event)" [dayTemplate]="t" ></ngb-datepicker>
                 <ng-template #t let-date let-focused="focused">
                     <span class="custom-day"
@@ -34,26 +37,34 @@
                     </span>
                 </ng-template>
             </div>
-            <div class="col-md-12" *ngIf="isDisplayTimeSlot">
+            <div class="col-md-8">
                 <ul class="ts-cboxtags time-slot">
-                    <li *ngFor="let timeItem of timeSlot; let i=index"><input type="checkbox" id="checkbox{{i}}" value="{{timeItem.time}}"><label for="checkbox{{i}}">{{timeItem.timeformat}}</label></li>
-                    <!-- <li><input type="checkbox" id="checkboxTwo" value="Cotton Candy" checked><label for="checkboxTwo">Cotton Candy</label></li>
-                    <li><input type="checkbox" id="checkboxFifteen" value="Firefly"><label for="checkboxFifteen">Firefly</label></li> -->
+                    <li *ngFor="let timeItem of timeSlot; let i=index"><input type="checkbox" id="checkbox{{i}}" [value]="timeItem.time" [(ngModel)]="timeItem.isChecked" (change)="changeSelection()"><label for="checkbox{{i}}">{{timeItem.timeformat}}</label></li>
                 </ul>
             </div>
-            <div class="row">
-                <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="col-md-12 remove-padding">
                     <hr>
-                    <div class="col-md-12">			 
-                        <button type="button" class="btn btn-confirm">
-                            Save
-                        </button>
-                        <button type="button" class="btn btn-light btn-cancel">
-                            Cancel
-                        </button>
-                    </div>
+                </div>
+                <div class="col-md-12">			 
+                    <button type="button" class="btn btn-confirm" (click) ="saveAppointments(errorTpl, successTpl)">
+                        Save
+                    </button>
+                    <button type="button" class="btn btn-light btn-cancel" (click) ="cancelAppointments()">
+                        Cancel
+                    </button>
                 </div>
             </div>
 		</div>
     </div>
 </div>
+
+<ng-template #errorTpl>
+    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 
+    {{errorMsg}}
+</ng-template>
+
+<ng-template #successTpl>
+    <i class="fa fa-check" aria-hidden="true"></i>
+    {{successMsg}}
+</ng-template>
