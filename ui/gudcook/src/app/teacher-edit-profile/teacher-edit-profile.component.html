@@ -21,11 +21,10 @@
         </p>
         <div *ngIf="!appointmentsEdit">
             <p>No data found!</p>
-        </div>
+        </div> -->
 
-        <div class="row" *ngIf="appointmentsEdit"> -->
-            <div class="row" >
-                <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-4">
                 <ngb-datepicker #dp [(ngModel)]="selectedDate" [minDate] = "minDate" [maxDate] = "maxDate" (dateSelect)="onDateSelection($event)" [dayTemplate]="t" ></ngb-datepicker>
                 <ng-template #t let-date let-focused="focused">
                     <span class="custom-day"
@@ -43,10 +42,9 @@
                     <li *ngFor="let timeItem of timeSlot; let i=index"><input type="checkbox" id="checkbox{{i}}" [value]="timeItem.time" [(ngModel)]="timeItem.isChecked" (change)="changeSelection()"><label for="checkbox{{i}}">{{timeItem.timeformat}}</label></li>
                 </ul>
             </div>
+        </div>
+        <div class="row mt-3">
             <div class="col-md-12">
-                <div class="col-md-12 remove-padding">
-                    <hr>
-                </div>
                 <div class="col-md-12">			 
                     <button type="button" class="btn btn-confirm" (click) ="saveAppointments(errorTpl, successTpl)">
                         Save
