@@ -24,7 +24,7 @@
         </div> -->
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <ngb-datepicker #dp [(ngModel)]="selectedDate" [minDate] = "minDate" [maxDate] = "maxDate" (dateSelect)="onDateSelection($event)" [dayTemplate]="t" ></ngb-datepicker>
                 <ng-template #t let-date let-focused="focused">
                     <span class="custom-day"
@@ -37,9 +37,12 @@
                     </span>
                 </ng-template>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <ul class="ts-cboxtags time-slot">
-                    <li *ngFor="let timeItem of timeSlot; let i=index"><input type="checkbox" id="checkbox{{i}}" [value]="timeItem.time" [(ngModel)]="timeItem.isChecked" (change)="changeSelection()"><label for="checkbox{{i}}">{{timeItem.timeformat}}</label></li>
+                    <li *ngFor="let timeItem of timeSlot; let i=index">
+                        <input type="checkbox" id="checkbox{{i}}" [value]="timeItem.time" [(ngModel)]="timeItem.isChecked" (change)="changeSelection()">
+                            <label for="checkbox{{i}}">{{timeItem.timeformat}}</label>
+                    </li>
                 </ul>
             </div>
         </div>
