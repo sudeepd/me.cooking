@@ -35,6 +35,7 @@ import { TeacherEditProfileComponent } from './teacher-edit-profile/teacher-edit
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { ToastService } from './toast-service';
 import { ToastsContainer } from "./toasts-container.component";
+import { TimeFormatPipe } from "./custom-pipe";
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ToastsContainer } from "./toasts-container.component";
     StudentEditProfileComponent,
     TeacherEditProfileComponent,
     EditprofileComponent,
-    ToastsContainer
+    ToastsContainer,
+    TimeFormatPipe
   ],
   imports: [
     BrowserModule,

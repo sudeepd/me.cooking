@@ -2,15 +2,41 @@
     <div class="col-md-4 border-right">        
         <p>
             Upcoming Appointments
-            <button type="button" class="btn px-3 ml-2">
+            <!-- <button type="button" class="btn px-3 ml-2">
                 <i class="fa fa-edit fa-2x"></i>
-            </button>            
+            </button>             -->
         </p>
-        <!-- <ul class="list-group">
-            <li *ngFor="let item of userData?.appointments" class="list-group-item border-0">
-                <i class="fa fa-calendar mr-2"></i>{{item.startTime| date:'medium'}}
-            </li>
-        </ul>             -->
+        <table class="table table-striped">
+            <thead>
+            <tr>
+              <!-- <th scope="col">#</th> -->
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+              <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dataList of paginationData; let i=index">
+              <!-- <th scope="row">{{ dataList.id }}</th> -->
+              <td>
+                {{ dataList.bookingDate | date:'mediumDate' }}
+              </td>
+              <td> {{ dataList.bookingTime | timeformat }} </td>
+              <td> {{ dataList.status }} </td>
+            </tr>
+            </tbody>
+          </table>
+          
+          <div class="d-flex justify-content-between p-2">
+            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+            </ngb-pagination>
+          
+            <!-- <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+              <option [ngValue]="2">2 items per page</option>
+              <option [ngValue]="4">4 items per page</option>
+              <option [ngValue]="6">6 items per page</option>
+            </select> -->
+        </div>
     </div>
     <div class="col-md-8">
         <!-- <p>
@@ -37,7 +63,7 @@
                     </span>
                 </ng-template>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7" style="margin-left: 20px;">
                 <ul class="ts-cboxtags time-slot">
                     <li *ngFor="let timeItem of timeSlot; let i=index"><input type="checkbox" id="checkbox{{i}}" [value]="timeItem.time" [(ngModel)]="timeItem.isChecked" (change)="changeSelection()"><label for="checkbox{{i}}">{{timeItem.timeformat}}</label></li>
                 </ul>
@@ -49,9 +75,9 @@
                     <button type="button" class="btn btn-confirm" (click) ="saveAppointments(errorTpl, successTpl)">
                         Save
                     </button>
-                    <button type="button" class="btn btn-light btn-cancel" (click) ="cancelAppointments()">
+                    <!-- <button type="button" class="btn btn-light btn-cancel" (click) ="cancelAppointments()">
                         Cancel
-                    </button>
+                    </button> -->
                 </div>
             </div>
 		</div>
