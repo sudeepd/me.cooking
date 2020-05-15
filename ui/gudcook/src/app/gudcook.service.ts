@@ -107,6 +107,9 @@ export class GudcookService {
       d.ingredients = x.get('ingredients');
       d.ratings = x.get('ratings');
       d.duration = x.get('duration');
+      if (! d.pictureId || d.pictureId === '') {
+        d.pictureId = '/assets/food-placeholder.jpg'
+      }
       return d;
     })))      
   }
@@ -175,7 +178,7 @@ export class GudcookService {
   }
 
   getClassTypes() : Observable<string[]>{
-    return of([ 'Type-1', 'Type-2', 'Type-3']);
+    return of([ 'Beginner', 'Intermediate', 'Expert']);
   }
   
   getDishById(id:string) : Observable<Dish> {

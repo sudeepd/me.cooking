@@ -9,15 +9,17 @@
     </div>
 </div>
 <div class="row mt-5">        
-    <div class="col-4" *ngFor="let view of dishView">
+    <div class="col-4 d-flex align-items-stretch" *ngFor="let view of dishView">
         <div  class="card mb-5">
             <div class="card-img-caption">
                 <a [routerLink]="['/dish',view.id]"><img class="card-img-top" src="{{view.pictureId}}"></a>
             </div>                    
             <div class="card-body">
-                <h5 class="card-title"><a [routerLink]="['/dish',view.id]">{{view.name}}</a></h5>
+                <h5 class="card-title">{{view.name}}
+                    <span style="float: right;"><ngb-rating [rate]="view?.ratings" [readonly]="true" [max]="5"></ngb-rating></span>
+                </h5> 
+                <hr>
                 <i class="fa fa-cutlery mr-3"></i>{{getUserName(view.creator)}}<br>
-                Ratings : {{view.ratings}}<br>
                 <a [routerLink]="['/dish',view.id]">
                     <i class="fa fa-calendar mr-3"></i>Reserve time<br>
                 </a>
@@ -25,3 +27,4 @@
         </div>
     </div>
 </div>
+
